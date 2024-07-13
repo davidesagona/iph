@@ -118,7 +118,7 @@ LINK_INIZIALE_2 = os.getenv('LINK_INIZIALE_2')
 LINK_INIZIALE_3 = os.getenv('LINK_INIZIALE_3')
 TOK = json.loads(TOK)
 
-pmax = "=" + str(secrets.randbelow(750) + 750)
+pmax = "=" + str(secrets.randbelow(750) + 1000)
 
 LINK_INIZIALE = LINK_INIZIALE.replace('=1000', pmax)
 LINK_INIZIALE_2 = LINK_INIZIALE_2.replace('=1000', pmax)
@@ -159,7 +159,6 @@ for item in product_list_items_tot:
 
     title_tag = item.find('h2', class_='index-module_sbt-text-atom__ifYVU')
     titolo_annuncio = title_tag.text.strip() if title_tag else 'N/A'
-    print(titolo_annuncio)
 
     if not "cerco" in titolo_annuncio.lower() and not "malfunzionante" in titolo_annuncio.lower() and not "non funzionante" in titolo_annuncio.lower() and not "lcd" in titolo_annuncio.lower() and not "rotta" in titolo_annuncio.lower() and not "schermo" in titolo_annuncio.lower() and not "scocca" in titolo_annuncio.lower() and not "fotocamera" in titolo_annuncio.lower() and not "fotocamere" in titolo_annuncio.lower() and not "display" in titolo_annuncio.lower() and not "scheda madre" in titolo_annuncio.lower() and not "bloccato" in titolo_annuncio.lower() and not "cover per" in titolo_annuncio.lower() and not "guasto" in titolo_annuncio.lower() and not "rotto" in titolo_annuncio.lower() and not "ricambi" in titolo_annuncio.lower() and not "da aggiustare" in titolo_annuncio.lower() and not "no wifi" in titolo_annuncio.lower() and not "display" in titolo_annuncio.lower():
         if "cover" in titolo_annuncio.lower():
@@ -168,10 +167,10 @@ for item in product_list_items_tot:
         if "custodia" in titolo_annuncio.lower():
             if not "con custodia" in titolo_annuncio.lower() and not "regalo" in titolo_annuncio.lower() and not "+" in titolo_annuncio.lower() and not "pi" in titolo_annuncio.lower():
                 continue
-        if "iphone 11" in titolo_annuncio:
+        if "iphone 11" in titolo_annuncio.lower() or "iphon 11" in titolo_annuncio.lower():
             min = 39
             max = 121
-        elif "iphone 12" in titolo_annuncio:
+        elif "iphone 12" in titolo_annuncio.lower() or "iphon 12" in titolo_annuncio.lower():
             if "mini" in titolo_annuncio.lower():
                 min = 39
                 max = 151
@@ -186,7 +185,7 @@ for item in product_list_items_tot:
                 min = 39
                 max = 216
             
-        elif "iphone 13" in titolo_annuncio:
+        elif "iphone 13" in titolo_annuncio.lower() or "iphon 13" in titolo_annuncio.lower():
             if "mini" in titolo_annuncio.lower():
                 min = 170
                 max = 241
@@ -201,7 +200,7 @@ for item in product_list_items_tot:
                 min = 199
                 max = 311
                 
-        elif "iphone 14" in titolo_annuncio:
+        elif "iphone 14" in titolo_annuncio.lower() or "iphon 14" in titolo_annuncio.lower():
             if "pro" in titolo_annuncio.lower():
                 if "max" in titolo_annuncio.lower():
                     min = 309
@@ -223,7 +222,7 @@ for item in product_list_items_tot:
                 new_content = link_annuncio + new_content
                 aggiorna_file()
 
-delay = secrets.randbelow(15) + 15
+delay = secrets.randbelow(15) + 10
 time.sleep(delay)
     
     
