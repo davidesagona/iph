@@ -9,7 +9,7 @@ from google.oauth2 import service_account
 import json
 import time
 import telepot
-
+import secrets
 
 def update_document_content(document_id, new_content):
     # Prima rimuovi tutto il contenuto esistente
@@ -218,6 +218,7 @@ for item in product_list_items_tot:
                 new_content = link_annuncio + new_content
                 aggiorna_file()
 
-time.sleep(15)
+delay = secrets.randbelow(11) + 10
+time.sleep(delay)
     
     
