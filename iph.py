@@ -129,7 +129,7 @@ page = requests.get(LINK_INIZIALE_2)
 soup = BeautifulSoup(page.text, 'html.parser')
 product_list_items_2 = soup.find_all('div', class_=re.compile(r'item-card'))
 
-product_list_items_tol = product_list_items_1 + product_list_items_2
+product_list_items_tot = product_list_items_1 + product_list_items_2
 
 for item in product_list_items_tot:
     
