@@ -123,7 +123,7 @@ creds = service_account.Credentials.from_service_account_info(TOK, scopes=SCOPES
 DOCUMENT_ID = '1RrJzZSB8OUbmt-vtt-ifk8bKeeC2mUdQQY1d2u6QSp0'
 service = build('docs', 'v1', credentials=creds)
 
-bot = telepot.Bot(TG_TOKEN)
+bot = telepot.Bot(TG_TOK)
 
 new_content = ''
 
