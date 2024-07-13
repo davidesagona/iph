@@ -8,6 +8,7 @@ from googleapiclient.discovery import build
 from google.oauth2 import service_account
 import json
 import time
+import telepot
 
 
 def update_document_content(document_id, new_content):
@@ -76,8 +77,8 @@ def contenuto():
             break
         except:
             time.sleep(1)
-            if contat == 6:
-                print("Lettura NON riuscita")
+            print("Lettura NON riuscita")
+            
     return contenuto_file
 
 
@@ -110,6 +111,8 @@ def manda_mail(link_annuncio, titolo='Annuncio interessante'):
 API_MAIL = os.getenv('API_MAIL')
 MAIL_MIA = os.getenv('MAIL_MIA')
 TOK = os.getenv('TOK')
+TG_TOK = os.getenv('TG_TOK')
+CHAT_ID = os.getenv('CHAT_ID')
 LINK_INIZIALE = os.getenv('LINK_INIZIALE')
 LINK_INIZIALE_2 = os.getenv('LINK_INIZIALE_2')
 LINK_INIZIALE_3 = os.getenv('LINK_INIZIALE_3')
@@ -119,6 +122,8 @@ SCOPES = ['https://www.googleapis.com/auth/documents']
 creds = service_account.Credentials.from_service_account_info(TOK, scopes=SCOPES)
 DOCUMENT_ID = '1RrJzZSB8OUbmt-vtt-ifk8bKeeC2mUdQQY1d2u6QSp0'
 service = build('docs', 'v1', credentials=creds)
+
+bot = telepot.Bot(TG_TOKEN)
 
 new_content = ''
 
@@ -130,11 +135,11 @@ page = requests.get(LINK_INIZIALE_2)
 soup = BeautifulSoup(page.text, 'html.parser')
 product_list_items_2 = soup.find_all('div', class_=re.compile(r'item-card'))
 
-page = requests.get(LINK_INIZIALE_3)
-soup = BeautifulSoup(page.text, 'html.parser')
-product_list_items_3 = soup.find_all('div', class_=re.compile(r'item-card'))
+#page = requests.get(LINK_INIZIALE_3)
+#soup = BeautifulSoup(page.text, 'html.parser')
+#product_list_items_3 = soup.find_all('div', class_=re.compile(r'item-card'))
 
-product_list_items_tot = product_list_items_1 + product_list_items_2 + product_list_items_3
+product_list_items_tot = product_list_items_1 + product_list_items_2
 
 for item in product_list_items_tot:
     
@@ -149,6 +154,7 @@ for item in product_list_items_tot:
 
     title_tag = item.find('h2', class_='index-module_sbt-text-atom__ifYVU')
     titolo_annuncio = title_tag.text.strip() if title_tag else 'N/A'
+    print(titolo_annuncio)
 
     if not "cerco" in titolo_annuncio.lower() and not "malfunzionante" in titolo_annuncio.lower() and not "non funzionante" in titolo_annuncio.lower() and not "lcd" in titolo_annuncio.lower() and not "rotta" in titolo_annuncio.lower() and not "schermo" in titolo_annuncio.lower() and not "scocca" in titolo_annuncio.lower() and not "fotocamera" in titolo_annuncio.lower() and not "fotocamere" in titolo_annuncio.lower() and not "display" in titolo_annuncio.lower() and not "scheda madre" in titolo_annuncio.lower() and not "bloccato" in titolo_annuncio.lower() and not "cover per" in titolo_annuncio.lower() and not "guasto" in titolo_annuncio.lower() and not "rotto" in titolo_annuncio.lower() and not "ricambi" in titolo_annuncio.lower() and not "da aggiustare" in titolo_annuncio.lower() and not "no wifi" in titolo_annuncio.lower() and not "display" in titolo_annuncio.lower():
         if "cover" in titolo_annuncio.lower():
@@ -208,6 +214,7 @@ for item in product_list_items_tot:
             contenuto_file_iniziale = contenuto()
             if not link_annuncio in contenuto_file_iniziale + new_content:
                 manda_mail(link_annuncio, titolo_annuncio)
+                bot.sendMessage(CHAT_ID, titolo_annuncio + ': '+ link_annuncio)
                 new_content = link_annuncio + new_content
                 aggiorna_file()
 
