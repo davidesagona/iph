@@ -112,6 +112,7 @@ MAIL_MIA = os.getenv('MAIL_MIA')
 TOK = os.getenv('TOK')
 LINK_INIZIALE = os.getenv('LINK_INIZIALE')
 LINK_INIZIALE_2 = os.getenv('LINK_INIZIALE_2')
+LINK_INIZIALE_3 = os.getenv('LINK_INIZIALE_3')
 TOK = json.loads(TOK)
 
 SCOPES = ['https://www.googleapis.com/auth/documents']
@@ -129,7 +130,11 @@ page = requests.get(LINK_INIZIALE_2)
 soup = BeautifulSoup(page.text, 'html.parser')
 product_list_items_2 = soup.find_all('div', class_=re.compile(r'item-card'))
 
-product_list_items_tot = product_list_items_1 + product_list_items_2
+page = requests.get(LINK_INIZIALE_3)
+soup = BeautifulSoup(page.text, 'html.parser')
+product_list_items_3 = soup.find_all('div', class_=re.compile(r'item-card'))
+
+product_list_items_tot = product_list_items_1 + product_list_items_2 + product_list_items_3
 
 for item in product_list_items_tot:
     
