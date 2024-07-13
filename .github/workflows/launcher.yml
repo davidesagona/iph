@@ -1,7 +1,7 @@
 on:
-  #workflow_dispatch: # avvio manuale
-  schedule:
-    - cron: '30 4 * * *' # ogni giorno alle 4.30 UTC (6.30 nostre d'estate e 5.30 d'inverno)
+  workflow_dispatch: # avvio manuale
+  #schedule:
+    #- cron: '30 4 * * *' # ogni giorno alle 4.30 UTC (6.30 nostre d'estate e 5.30 d'inverno)
 
 jobs:
   lavoro1:
@@ -37,6 +37,8 @@ jobs:
           LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
           LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
           LINK_INIZIALE_3: ${{ secrets.LINK_INIZIALE_3 }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          TG_TOK: ${{ secrets.TG_TOK }}
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
@@ -76,6 +78,8 @@ jobs:
           LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
           LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
           LINK_INIZIALE_3: ${{ secrets.LINK_INIZIALE_3 }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          TG_TOK: ${{ secrets.TG_TOK }}
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
@@ -118,6 +122,8 @@ jobs:
           LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
           LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
           LINK_INIZIALE_3: ${{ secrets.LINK_INIZIALE_3 }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          TG_TOK: ${{ secrets.TG_TOK }}
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
@@ -161,6 +167,8 @@ jobs:
           LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
           LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
           LINK_INIZIALE_3: ${{ secrets.LINK_INIZIALE_3 }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          TG_TOK: ${{ secrets.TG_TOK }}
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
@@ -205,6 +213,8 @@ jobs:
           LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
           LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
           LINK_INIZIALE_3: ${{ secrets.LINK_INIZIALE_3 }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          TG_TOK: ${{ secrets.TG_TOK }}
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
@@ -250,6 +260,8 @@ jobs:
           LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
           LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
           LINK_INIZIALE_3: ${{ secrets.LINK_INIZIALE_3 }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          TG_TOK: ${{ secrets.TG_TOK }}
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
@@ -296,6 +308,8 @@ jobs:
           LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
           LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
           LINK_INIZIALE_3: ${{ secrets.LINK_INIZIALE_3 }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          TG_TOK: ${{ secrets.TG_TOK }}
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
