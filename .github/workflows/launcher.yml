@@ -34,8 +34,8 @@ jobs:
           API_MAIL: ${{ secrets.API_MAIL }}
           MAIL_MIA: ${{ secrets.MAIL_MIA }}
           TOK: ${{ secrets.TOK }}
-          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
-          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+          LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
+          LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
         run: |
           for i in {1..3000}; do
             echo "Iterazione $i"
@@ -72,8 +72,8 @@ jobs:
           API_MAIL: ${{ secrets.API_MAIL }}
           MAIL_MIA: ${{ secrets.MAIL_MIA }}
           TOK: ${{ secrets.TOK }}
-          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
-          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+          LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
+          LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
         run: |
           for i in {1..3000}; do
             echo "Iterazione $i"
@@ -113,8 +113,8 @@ jobs:
           API_MAIL: ${{ secrets.API_MAIL }}
           MAIL_MIA: ${{ secrets.MAIL_MIA }}
           TOK: ${{ secrets.TOK }}
-          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
-          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+          LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
+          LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
         run: |
           for i in {1..3000}; do
             echo "Iterazione $i"
@@ -155,8 +155,8 @@ jobs:
           API_MAIL: ${{ secrets.API_MAIL }}
           MAIL_MIA: ${{ secrets.MAIL_MIA }}
           TOK: ${{ secrets.TOK }}
-          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
-          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+          LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
+          LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
         run: |
           for i in {1..3000}; do
             echo "Iterazione $i"
@@ -198,8 +198,8 @@ jobs:
           API_MAIL: ${{ secrets.API_MAIL }}
           MAIL_MIA: ${{ secrets.MAIL_MIA }}
           TOK: ${{ secrets.TOK }}
-          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
-          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+          LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
+          LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
         run: |
           for i in {1..3000}; do
             echo "Iterazione $i"
@@ -242,8 +242,8 @@ jobs:
           API_MAIL: ${{ secrets.API_MAIL }}
           MAIL_MIA: ${{ secrets.MAIL_MIA }}
           TOK: ${{ secrets.TOK }}
-          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
-          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+          LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
+          LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
         run: |
           for i in {1..3000}; do
             echo "Iterazione $i"
@@ -287,8 +287,8 @@ jobs:
           API_MAIL: ${{ secrets.API_MAIL }}
           MAIL_MIA: ${{ secrets.MAIL_MIA }}
           TOK: ${{ secrets.TOK }}
-          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
-          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+          LINK_INIZIALE: ${{ secrets.LINK_INIZIALE }}
+          LINK_INIZIALE_2: ${{ secrets.LINK_INIZIALE_2 }}
         run: |
           for i in {1..3000}; do
             echo "Iterazione $i"
