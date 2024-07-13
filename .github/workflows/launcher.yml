@@ -43,7 +43,7 @@ jobs:
           for i in {1..3500}; do
             echo "Iterazione $i"
             date +"%Y-%m-%d %H:%M:%S"
-            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 50s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro2:
     runs-on: ubuntu-latest
@@ -85,7 +85,7 @@ jobs:
           for i in {1..3500}; do
             echo "Iterazione $i"
             date +"%Y-%m-%d %H:%M:%S"
-            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 50s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro3:
     runs-on: ubuntu-latest
@@ -130,7 +130,7 @@ jobs:
           for i in {1..3500}; do
             echo "Iterazione $i"
             date +"%Y-%m-%d %H:%M:%S"
-            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 50s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro4:
     runs-on: ubuntu-latest
@@ -176,7 +176,7 @@ jobs:
           for i in {1..3500}; do
             echo "Iterazione $i"
             date +"%Y-%m-%d %H:%M:%S"
-            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 50s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro5:
     runs-on: ubuntu-latest
@@ -223,7 +223,7 @@ jobs:
           for i in {1..3500}; do
             echo "Iterazione $i"
             date +"%Y-%m-%d %H:%M:%S"
-            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 50s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro6:
     runs-on: ubuntu-latest
@@ -271,7 +271,7 @@ jobs:
           for i in {1..3500}; do
             echo "Iterazione $i"
             date +"%Y-%m-%d %H:%M:%S"
-            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 50s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro7:
     runs-on: ubuntu-latest
@@ -320,5 +320,5 @@ jobs:
           for i in {1..3500}; do
             echo "Iterazione $i"
             date +"%Y-%m-%d %H:%M:%S"
-            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 50s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
