@@ -39,7 +39,6 @@ def update_document_content(document_id, new_content):
 
 def aggiorna_file():
     if not new_content == '':
-        contenuto_file_iniziale = contenuto()
         da_mettere = new_content + contenuto_file_iniziale
         da_mettere = da_mettere.replace(' ', '')
         da_mettere = da_mettere.replace('\n', '')
@@ -52,12 +51,12 @@ def aggiorna_file():
             contat += 1
             try:
                 update_document_content(DOCUMENT_ID, da_mettere)
+                contenuto_file_iniziale = contenuto()
                 print("Aggiornamento riuscito")
                 break
             except:
                 time.sleep(1)
-                if n == 6:
-                    print("Aggiornamento NON riuscito")
+                print("Aggiornamento NON riuscito")
             
 
 def contenuto():
@@ -115,13 +114,16 @@ TG_TOK = os.getenv('TG_TOK')
 CHAT_ID = os.getenv('CHAT_ID')
 LINK_INIZIALE = os.getenv('LINK_INIZIALE')
 LINK_INIZIALE_2 = os.getenv('LINK_INIZIALE_2')
-LINK_INIZIALE_3 = os.getenv('LINK_INIZIALE_3')
 TOK = json.loads(TOK)
 
 pmax = "=" + str(secrets.randbelow(1200) + 750)
+pmin = "=" + str(secrets.randbelow(19) + 20)
 
 LINK_INIZIALE = LINK_INIZIALE.replace('=1000', pmax)
 LINK_INIZIALE_2 = LINK_INIZIALE_2.replace('=1000', pmax)
+
+LINK_INIZIALE = LINK_INIZIALE.replace('=30', pmin)
+LINK_INIZIALE_2 = LINK_INIZIALE_2.replace('=30', pmin)
 
 SCOPES = ['https://www.googleapis.com/auth/documents']
 creds = service_account.Credentials.from_service_account_info(TOK, scopes=SCOPES)
@@ -139,10 +141,6 @@ product_list_items_1 = soup.find_all('div', class_=re.compile(r'item-card'))
 page = requests.get(LINK_INIZIALE_2)
 soup = BeautifulSoup(page.text, 'html.parser')
 product_list_items_2 = soup.find_all('div', class_=re.compile(r'item-card'))
-
-#page = requests.get(LINK_INIZIALE_3)
-#soup = BeautifulSoup(page.text, 'html.parser')
-#product_list_items_3 = soup.find_all('div', class_=re.compile(r'item-card'))
 
 product_list_items_tot = product_list_items_1 + product_list_items_2
 
@@ -215,7 +213,12 @@ for item in product_list_items_tot:
             continue
             
         if prezzo > min and prezzo < max:
-            contenuto_file_iniziale = contenuto()
+            
+            try:
+                contenuto_file_iniziale
+            except:
+                contenuto_file_iniziale = contenuto()
+            
             if not link_annuncio in contenuto_file_iniziale + new_content:
                 manda_mail(link_annuncio, titolo_annuncio)
                 bot.sendMessage(CHAT_ID, titolo_annuncio + ': '+ link_annuncio)
