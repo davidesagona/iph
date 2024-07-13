@@ -118,6 +118,11 @@ LINK_INIZIALE_2 = os.getenv('LINK_INIZIALE_2')
 LINK_INIZIALE_3 = os.getenv('LINK_INIZIALE_3')
 TOK = json.loads(TOK)
 
+pmax = "=" + str(secrets.randbelow(750) + 750)
+
+LINK_INIZIALE = LINK_INIZIALE.replace('=1000', pmax)
+LINK_INIZIALE_2 = LINK_INIZIALE_2.replace('=1000', pmax)
+
 SCOPES = ['https://www.googleapis.com/auth/documents']
 creds = service_account.Credentials.from_service_account_info(TOK, scopes=SCOPES)
 DOCUMENT_ID = '1RrJzZSB8OUbmt-vtt-ifk8bKeeC2mUdQQY1d2u6QSp0'
@@ -218,7 +223,7 @@ for item in product_list_items_tot:
                 new_content = link_annuncio + new_content
                 aggiorna_file()
 
-delay = secrets.randbelow(12) + 20
+delay = secrets.randbelow(15) + 15
 time.sleep(delay)
     
     
