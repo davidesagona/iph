@@ -1,12 +1,12 @@
 on:
-  workflow_dispatch: # avvio manuale
-  #schedule:
-    #- cron: '30 4 * * *' # ogni giorno alle 4.30 UTC (6.30 nostre d'estate e 5.30 d'inverno)
+  #workflow_dispatch: # avvio manuale
+  schedule:
+    - cron: '30 4 * * *' # ogni giorno alle 4.30 UTC (6.30 nostre d'estate e 5.30 d'inverno)
 
 jobs:
   lavoro1:
     runs-on: ubuntu-latest
-    timeout-minutes: 185
+    timeout-minutes: 190
     continue-on-error: true
 
     steps:
@@ -44,7 +44,7 @@ jobs:
           done
   lavoro2:
     runs-on: ubuntu-latest
-    timeout-minutes: 185
+    timeout-minutes: 190
     continue-on-error: true
     needs: lavoro1
 
@@ -83,7 +83,7 @@ jobs:
           done
   lavoro3:
     runs-on: ubuntu-latest
-    timeout-minutes: 185
+    timeout-minutes: 190
     continue-on-error: true
     
     needs: 
@@ -125,7 +125,7 @@ jobs:
           done
   lavoro4:
     runs-on: ubuntu-latest
-    timeout-minutes: 185
+    timeout-minutes: 190
     continue-on-error: true
     
     needs: 
@@ -168,7 +168,7 @@ jobs:
           done
   lavoro5:
     runs-on: ubuntu-latest
-    timeout-minutes: 185
+    timeout-minutes: 190
     continue-on-error: true
     
     needs: 
@@ -212,7 +212,7 @@ jobs:
           done
   lavoro6:
     runs-on: ubuntu-latest
-    timeout-minutes: 185
+    timeout-minutes: 190
     continue-on-error: true
     
     needs: 
@@ -257,7 +257,7 @@ jobs:
           done
   lavoro7:
     runs-on: ubuntu-latest
-    timeout-minutes: 185
+    timeout-minutes: 190
     continue-on-error: true
     
     needs: 
