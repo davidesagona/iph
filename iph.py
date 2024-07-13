@@ -200,6 +200,7 @@ for item in product_list_items_tot:
             continue
             
         if prezzo > min and prezzo < max:
+            contenuto_file_iniziale = contenuto()
             if not link_annuncio in contenuto_file_iniziale + new_content:
                 #manda_mail(link_annuncio, titolo_annuncio)
                 new_content = link_annuncio + new_content
