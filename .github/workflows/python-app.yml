@@ -1,0 +1,296 @@
+on:
+  workflow_dispatch: # avvio manuale
+  #schedule:
+    #- cron: '30 4 * * *' # ogni giorno alle 4.30 UTC (6.30 nostre d'estate e 5.30 d'inverno)
+
+jobs:
+  lavoro1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 185
+    continue-on-error: true
+
+    steps:
+      - name: Repository
+        uses: actions/checkout@v4
+
+      - name: Setup di Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup di Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Aggiorna pip
+        run: pip install --upgrade pip
+        
+      - name: Installa librerie
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+
+      - name: Avvio script
+        env:
+          API_MAIL: ${{ secrets.API_MAIL }}
+          MAIL_MIA: ${{ secrets.MAIL_MIA }}
+          TOK: ${{ secrets.TOK }}
+          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
+          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+        run: |
+          for i in {1..3000}; do
+            echo "Iterazione $i"
+            timeout 30s python iph.py || echo "Iterazione $i stoppata per timeout"
+          done
+  lavoro2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 185
+    continue-on-error: true
+    needs: lavoro1
+
+    steps:
+      - name: Repository
+        uses: actions/checkout@v4
+
+      - name: Setup di Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup di Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Aggiorna pip
+        run: pip install --upgrade pip
+        
+      - name: Installa librerie
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+
+      - name: Avvio script
+        env:
+          API_MAIL: ${{ secrets.API_MAIL }}
+          MAIL_MIA: ${{ secrets.MAIL_MIA }}
+          TOK: ${{ secrets.TOK }}
+          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
+          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+        run: |
+          for i in {1..3000}; do
+            echo "Iterazione $i"
+            timeout 30s python iph.py || echo "Iterazione $i stoppata per timeout"
+          done
+  lavoro3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 185
+    continue-on-error: true
+    
+    needs: 
+      - lavoro1
+      - lavoro2
+
+    steps:
+      - name: Repository
+        uses: actions/checkout@v4
+
+      - name: Setup di Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup di Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Aggiorna pip
+        run: pip install --upgrade pip
+        
+      - name: Installa librerie
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+
+      - name: Avvio script
+        env:
+          API_MAIL: ${{ secrets.API_MAIL }}
+          MAIL_MIA: ${{ secrets.MAIL_MIA }}
+          TOK: ${{ secrets.TOK }}
+          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
+          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+        run: |
+          for i in {1..3000}; do
+            echo "Iterazione $i"
+            timeout 30s python iph.py || echo "Iterazione $i stoppata per timeout"
+          done
+  lavoro4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 185
+    continue-on-error: true
+    
+    needs: 
+      - lavoro1
+      - lavoro2
+      - lavoro3
+
+    steps:
+      - name: Repository
+        uses: actions/checkout@v4
+
+      - name: Setup di Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup di Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Aggiorna pip
+        run: pip install --upgrade pip
+        
+      - name: Installa librerie
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+
+      - name: Avvio script
+        env:
+          API_MAIL: ${{ secrets.API_MAIL }}
+          MAIL_MIA: ${{ secrets.MAIL_MIA }}
+          TOK: ${{ secrets.TOK }}
+          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
+          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+        run: |
+          for i in {1..3000}; do
+            echo "Iterazione $i"
+            timeout 30s python iph.py || echo "Iterazione $i stoppata per timeout"
+          done
+  lavoro5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 185
+    continue-on-error: true
+    
+    needs: 
+      - lavoro1
+      - lavoro2
+      - lavoro3
+      - lavoro4
+
+    steps:
+      - name: Repository
+        uses: actions/checkout@v4
+
+      - name: Setup di Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup di Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Aggiorna pip
+        run: pip install --upgrade pip
+        
+      - name: Installa librerie
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+
+      - name: Avvio script
+        env:
+          API_MAIL: ${{ secrets.API_MAIL }}
+          MAIL_MIA: ${{ secrets.MAIL_MIA }}
+          TOK: ${{ secrets.TOK }}
+          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
+          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+        run: |
+          for i in {1..3000}; do
+            echo "Iterazione $i"
+            timeout 30s python iph.py || echo "Iterazione $i stoppata per timeout"
+          done
+  lavoro6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 185
+    continue-on-error: true
+    
+    needs: 
+      - lavoro1
+      - lavoro2
+      - lavoro3
+      - lavoro4
+      - lavoro5
+
+    steps:
+      - name: Repository
+        uses: actions/checkout@v4
+
+      - name: Setup di Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup di Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Aggiorna pip
+        run: pip install --upgrade pip
+        
+      - name: Installa librerie
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+
+      - name: Avvio script
+        env:
+          API_MAIL: ${{ secrets.API_MAIL }}
+          MAIL_MIA: ${{ secrets.MAIL_MIA }}
+          TOK: ${{ secrets.TOK }}
+          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
+          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+        run: |
+          for i in {1..3000}; do
+            echo "Iterazione $i"
+            timeout 30s python iph.py || echo "Iterazione $i stoppata per timeout"
+          done
+  lavoro7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 185
+    continue-on-error: true
+    
+    needs: 
+      - lavoro1
+      - lavoro2
+      - lavoro3
+      - lavoro4
+      - lavoro5
+      - lavoro6
+
+    steps:
+      - name: Repository
+        uses: actions/checkout@v4
+
+      - name: Setup di Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup di Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Aggiorna pip
+        run: pip install --upgrade pip
+        
+      - name: Installa librerie
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+
+      - name: Avvio script
+        env:
+          API_MAIL: ${{ secrets.API_MAIL }}
+          MAIL_MIA: ${{ secrets.MAIL_MIA }}
+          TOK: ${{ secrets.TOK }}
+          LINK_RICERCA: ${{ secrets.LINK_RICERCA }}
+          LINK_RICERCA_2: ${{ secrets.LINK_RICERCA_2 }}
+        run: |
+          for i in {1..3000}; do
+            echo "Iterazione $i"
+            timeout 30s python iph.py || echo "Iterazione $i stoppata per timeout"
+          done
