@@ -133,6 +133,7 @@ service = build('docs', 'v1', credentials=creds)
 bot = telepot.Bot(TG_TOK)
 
 new_content = ''
+contenuto_file_iniziale = ''
 
 page = requests.get(LINK_INIZIALE)
 soup = BeautifulSoup(page.text, 'html.parser')
@@ -213,14 +214,12 @@ for item in product_list_items_tot:
             continue
             
         if prezzo > min and prezzo < max:
-            
-            try:
-                contenuto_file_iniziale
-            except:
+
+            if not contenuto_file_iniziale:
                 contenuto_file_iniziale = contenuto()
             
             if not link_annuncio in contenuto_file_iniziale + new_content:
-                manda_mail(link_annuncio, titolo_annuncio)
+                #manda_mail(link_annuncio, titolo_annuncio)
                 bot.sendMessage(CHAT_ID, titolo_annuncio + ': '+ link_annuncio)
                 new_content = link_annuncio + new_content
                 aggiorna_file()
