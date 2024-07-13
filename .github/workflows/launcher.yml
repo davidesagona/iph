@@ -1,7 +1,7 @@
 on:
-  #workflow_dispatch: # avvio manuale
-  schedule:
-    - cron: '30 4 * * *' # ogni giorno alle 4.30 UTC (6.30 nostre d'estate e 5.30 d'inverno)
+  workflow_dispatch: # avvio manuale
+  #schedule:
+    #- cron: '30 4 * * *' # ogni giorno alle 4.30 UTC (6.30 nostre d'estate e 5.30 d'inverno)
 
 jobs:
   lavoro1:
