@@ -42,6 +42,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
+            date +"%Y-%m-%d %H:%M:%S"
             timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro2:
@@ -83,6 +84,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
+            date +"%Y-%m-%d %H:%M:%S"
             timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro3:
@@ -127,6 +129,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
+            date +"%Y-%m-%d %H:%M:%S"
             timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro4:
@@ -172,6 +175,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
+            date +"%Y-%m-%d %H:%M:%S"
             timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro5:
@@ -218,6 +222,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
+            date +"%Y-%m-%d %H:%M:%S"
             timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro6:
@@ -265,6 +270,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
+            date +"%Y-%m-%d %H:%M:%S"
             timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro7:
@@ -313,5 +319,6 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
+            date +"%Y-%m-%d %H:%M:%S"
             timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
