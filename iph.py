@@ -118,7 +118,7 @@ LINK_INIZIALE_2 = os.getenv('LINK_INIZIALE_2')
 LINK_INIZIALE_3 = os.getenv('LINK_INIZIALE_3')
 TOK = json.loads(TOK)
 
-pmax = "=" + str(secrets.randbelow(750) + 1000)
+pmax = "=" + str(secrets.randbelow(1200) + 750)
 
 LINK_INIZIALE = LINK_INIZIALE.replace('=1000', pmax)
 LINK_INIZIALE_2 = LINK_INIZIALE_2.replace('=1000', pmax)
