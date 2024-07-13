@@ -110,7 +110,8 @@ def manda_mail(link_annuncio, titolo='Annuncio interessante'):
 API_MAIL = os.getenv('API_MAIL')
 MAIL_MIA = os.getenv('MAIL_MIA')
 TOK = os.getenv('TOK')
-LINK_RICERCA = os.getenv('LINK_RICERCA')
+LINK_INIZIALE = os.getenv('LINK_INIZIALE')
+LINK_INIZIALE_2 = os.getenv('LINK_INIZIALE_2')
 TOK = json.loads(TOK)
 
 SCOPES = ['https://www.googleapis.com/auth/documents']
@@ -120,85 +121,90 @@ service = build('docs', 'v1', credentials=creds)
 
 new_content = ''
 
-page = requests.get(LINK_RICERCA)
+page = requests.get(LINK_INIZIALE)
 soup = BeautifulSoup(page.text, 'html.parser')
+product_list_items_1 = soup.find_all('div', class_=re.compile(r'item-card'))
 
-product_list_items = soup.find_all('div', class_=re.compile(r'item-card'))
+page = requests.get(LINK_INIZIALE_2)
+soup = BeautifulSoup(page.text, 'html.parser')
+product_list_items_2 = soup.find_all('div', class_=re.compile(r'item-card'))
 
-for item in product_list_items:
-    try:
-        a_tag = item.find('a', class_='SmallCard-module_link__hOkzY')
-        link_annuncio = a_tag['href'] if a_tag else 'N/A'
-        
-        price_tag = item.find('p', class_='index-module_price__N7M2x')
-        prezzo = price_tag.text.strip() if price_tag else 'N/A'
-        prezzo = prezzo.replace('.', '')
-        prezzo = prezzo.replace(',', ' ')
-        prezzo = int(prezzo.split('€')[0])
+product_list_items_tol = product_list_items_1 + product_list_items_2
+
+for item in product_list_items_tot:
     
-        title_tag = item.find('h2', class_='index-module_sbt-text-atom__ifYVU')
-        titolo_annuncio = title_tag.text.strip() if title_tag else 'N/A'
+    a_tag = item.find('a', class_='SmallCard-module_link__hOkzY')
+    link_annuncio = a_tag['href'] if a_tag else 'N/A'
     
-        if not "cerco" in titolo_annuncio.lower() and not "malfunzionante" in titolo_annuncio.lower() and not "non funzionante" in titolo_annuncio.lower() and not "lcd" in titolo_annuncio.lower() and not "rotta" in titolo_annuncio.lower() and not "schermo" in titolo_annuncio.lower() and not "scocca" in titolo_annuncio.lower() and not "fotocamera" in titolo_annuncio.lower() and not "fotocamere" in titolo_annuncio.lower() and not "display" in titolo_annuncio.lower() and not "scheda madre" in titolo_annuncio.lower() and not "bloccato" in titolo_annuncio.lower() and not "cover per" in titolo_annuncio.lower() and not "guasto" in titolo_annuncio.lower() and not "rotto" in titolo_annuncio.lower() and not "ricambi" in titolo_annuncio.lower() and not "da aggiustare" in titolo_annuncio.lower() and not "no wifi" in titolo_annuncio.lower() and not "display" in titolo_annuncio.lower():
-            if "cover" in titolo_annuncio.lower():
-                if not "con cover" in titolo_annuncio.lower() and not "regalo" in titolo_annuncio.lower() and not "+" in titolo_annuncio.lower() and not "pi" in titolo_annuncio.lower():
-                    continue
-            if "custodia" in titolo_annuncio.lower():
-                if not "con custodia" in titolo_annuncio.lower() and not "regalo" in titolo_annuncio.lower() and not "+" in titolo_annuncio.lower() and not "pi" in titolo_annuncio.lower():
-                    continue
-            if "11" in titolo_annuncio:
+    price_tag = item.find('p', class_='index-module_price__N7M2x')
+    prezzo = price_tag.text.strip() if price_tag else 'N/A'
+    prezzo = prezzo.replace('.', '')
+    prezzo = prezzo.replace(',', ' ')
+    prezzo = int(prezzo.split('€')[0])
+
+    title_tag = item.find('h2', class_='index-module_sbt-text-atom__ifYVU')
+    titolo_annuncio = title_tag.text.strip() if title_tag else 'N/A'
+
+    if not "cerco" in titolo_annuncio.lower() and not "malfunzionante" in titolo_annuncio.lower() and not "non funzionante" in titolo_annuncio.lower() and not "lcd" in titolo_annuncio.lower() and not "rotta" in titolo_annuncio.lower() and not "schermo" in titolo_annuncio.lower() and not "scocca" in titolo_annuncio.lower() and not "fotocamera" in titolo_annuncio.lower() and not "fotocamere" in titolo_annuncio.lower() and not "display" in titolo_annuncio.lower() and not "scheda madre" in titolo_annuncio.lower() and not "bloccato" in titolo_annuncio.lower() and not "cover per" in titolo_annuncio.lower() and not "guasto" in titolo_annuncio.lower() and not "rotto" in titolo_annuncio.lower() and not "ricambi" in titolo_annuncio.lower() and not "da aggiustare" in titolo_annuncio.lower() and not "no wifi" in titolo_annuncio.lower() and not "display" in titolo_annuncio.lower():
+        if "cover" in titolo_annuncio.lower():
+            if not "con cover" in titolo_annuncio.lower() and not "regalo" in titolo_annuncio.lower() and not "+" in titolo_annuncio.lower() and not "pi" in titolo_annuncio.lower():
+                continue
+        if "custodia" in titolo_annuncio.lower():
+            if not "con custodia" in titolo_annuncio.lower() and not "regalo" in titolo_annuncio.lower() and not "+" in titolo_annuncio.lower() and not "pi" in titolo_annuncio.lower():
+                continue
+        if "11" in titolo_annuncio:
+            min = 39
+            max = 121
+        elif "12" in titolo_annuncio:
+            if "mini" in titolo_annuncio.lower():
                 min = 39
-                max = 121
-            elif "12" in titolo_annuncio:
-                if "mini" in titolo_annuncio.lower():
-                    min = 39
-                    max = 151
-                elif "pro" in titolo_annuncio.lower():
-                    if "max" in titolo_annuncio.lower():
-                        min = 220
-                        max = 340
-                    else:
-                        min = 39
-                        max = 221
+                max = 151
+            elif "pro" in titolo_annuncio.lower():
+                if "max" in titolo_annuncio.lower():
+                    min = 220
+                    max = 340
                 else:
                     min = 39
-                    max = 216
-                
-            elif "13" in titolo_annuncio:
-                if "mini" in titolo_annuncio.lower():
-                    min = 170
-                    max = 241
-                elif "pro" in titolo_annuncio.lower():
-                    if "max" in titolo_annuncio.lower():
-                        min = 289
-                        max = 421
-                    else:
-                        min = 199
-                        max = 320
+                    max = 221
+            else:
+                min = 39
+                max = 216
+            
+        elif "13" in titolo_annuncio:
+            if "mini" in titolo_annuncio.lower():
+                min = 170
+                max = 241
+            elif "pro" in titolo_annuncio.lower():
+                if "max" in titolo_annuncio.lower():
+                    min = 289
+                    max = 421
                 else:
                     min = 199
-                    max = 311
-                    
-            elif "14" in titolo_annuncio:
-                if "pro" in titolo_annuncio.lower():
-                    if "max" in titolo_annuncio.lower():
-                        min = 309
-                        max = 451
-                    else:
-                        min = 289
-                        max = 431
-                else:
-                    min = 209
-                    max = 321
+                    max = 320
             else:
-                continue
+                min = 199
+                max = 311
                 
-            if prezzo > min and prezzo < max:
-                if not link_annuncio in contenuto_file_iniziale + new_content:
-                    #manda_mail(link_annuncio, titolo_annuncio)
-                    new_content = link_annuncio + new_content
-                    aggiorna_file()
-                
-except:
-    pass
+        elif "14" in titolo_annuncio:
+            if "pro" in titolo_annuncio.lower():
+                if "max" in titolo_annuncio.lower():
+                    min = 309
+                    max = 451
+                else:
+                    min = 289
+                    max = 431
+            else:
+                min = 209
+                max = 321
+        else:
+            continue
+            
+        if prezzo > min and prezzo < max:
+            if not link_annuncio in contenuto_file_iniziale + new_content:
+                #manda_mail(link_annuncio, titolo_annuncio)
+                new_content = link_annuncio + new_content
+                aggiorna_file()
+
+time.sleep(5)
+    
     
