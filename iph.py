@@ -217,6 +217,7 @@ for item in product_list_items_tot:
 
             if not contenuto_file_iniziale:
                 contenuto_file_iniziale = contenuto()
+                print(contenuto_file_iniziale)
             
             if not link_annuncio in contenuto_file_iniziale + new_content:
                 #manda_mail(link_annuncio, titolo_annuncio)
