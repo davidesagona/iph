@@ -27,7 +27,7 @@ jobs:
         run: pip install --upgrade pip
         
       - name: Installa librerie
-        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2 telepot
 
       - name: Avvio script
         env:
@@ -68,7 +68,7 @@ jobs:
         run: pip install --upgrade pip
         
       - name: Installa librerie
-        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2 telepot
 
       - name: Avvio script
         env:
@@ -112,7 +112,7 @@ jobs:
         run: pip install --upgrade pip
         
       - name: Installa librerie
-        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2 telepot
 
       - name: Avvio script
         env:
@@ -157,7 +157,7 @@ jobs:
         run: pip install --upgrade pip
         
       - name: Installa librerie
-        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2 telepot
 
       - name: Avvio script
         env:
@@ -203,7 +203,7 @@ jobs:
         run: pip install --upgrade pip
         
       - name: Installa librerie
-        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2 telepot
 
       - name: Avvio script
         env:
@@ -250,7 +250,7 @@ jobs:
         run: pip install --upgrade pip
         
       - name: Installa librerie
-        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2 telepot
 
       - name: Avvio script
         env:
@@ -298,7 +298,7 @@ jobs:
         run: pip install --upgrade pip
         
       - name: Installa librerie
-        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+        run: pip install requests beautifulsoup4 mailtrap google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2 telepot
 
       - name: Avvio script
         env:
