@@ -38,6 +38,9 @@ def update_document_content(document_id, new_content):
     return result
 
 def aggiorna_file():
+    global new_content
+    global contenuto_file_iniziale
+    
     if not new_content == '':
         da_mettere = new_content + contenuto_file_iniziale
         da_mettere = da_mettere.replace(' ', '')
@@ -221,7 +224,7 @@ for item in product_list_items_tot:
             
             if not link_annuncio in contenuto_file_iniziale + new_content:
                 #manda_mail(link_annuncio, titolo_annuncio)
-                bot.sendMessage(CHAT_ID, titolo_annuncio + ': '+ link_annuncio)
+                bot.sendMessage(CHAT_ID, titolo_annuncio + ' a ' + str(prezzo) + '€' + ': '+ link_annuncio)
                 new_content = link_annuncio + new_content
                 aggiorna_file()
 
