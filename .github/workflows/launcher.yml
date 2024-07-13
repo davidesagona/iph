@@ -1,7 +1,7 @@
 on:
-  workflow_dispatch: # avvio manuale
-  #schedule:
-    #- cron: '30 4 * * *' # ogni giorno alle 4.30 UTC (6.30 nostre d'estate e 5.30 d'inverno)
+  #workflow_dispatch: # avvio manuale
+  schedule:
+    - cron: '30 4 * * *' # ogni giorno alle 4.30 UTC (6.30 nostre d'estate e 5.30 d'inverno)
 
 jobs:
   lavoro1:
@@ -39,7 +39,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
-            timeout 15s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro2:
     runs-on: ubuntu-latest
@@ -77,7 +77,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
-            timeout 15s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro3:
     runs-on: ubuntu-latest
@@ -118,7 +118,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
-            timeout 15s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro4:
     runs-on: ubuntu-latest
@@ -160,7 +160,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
-            timeout 15s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro5:
     runs-on: ubuntu-latest
@@ -203,7 +203,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
-            timeout 15s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro6:
     runs-on: ubuntu-latest
@@ -247,7 +247,7 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
-            timeout 15s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
   lavoro7:
     runs-on: ubuntu-latest
@@ -292,5 +292,5 @@ jobs:
         run: |
           for i in {1..3500}; do
             echo "Iterazione $i"
-            timeout 15s python iph.py || echo "Iterazione $i stoppata per timeout"
+            timeout 20s python iph.py || echo "Iterazione $i stoppata per timeout"
           done
