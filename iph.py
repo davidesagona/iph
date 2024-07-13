@@ -218,7 +218,7 @@ for item in product_list_items_tot:
                 new_content = link_annuncio + new_content
                 aggiorna_file()
 
-delay = secrets.randbelow(11) + 10
+delay = secrets.randbelow(12) + 20
 time.sleep(delay)
     
     
