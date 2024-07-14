@@ -212,7 +212,7 @@ for item in product_list_items_tot:
                     max = 431
             else:
                 min = 209
-                max = 321
+                max = 361
         else:
             continue
             
@@ -223,9 +223,11 @@ for item in product_list_items_tot:
             
             if not link_annuncio in contenuto_file_iniziale + new_content:
                 manda_mail(link_annuncio, titolo_annuncio)
-                bot.sendMessage(CHAT_ID, titolo_annuncio + ' a ' + str(prezzo) + '€' + ': '+ link_annuncio)
                 new_content = link_annuncio + new_content
                 aggiorna_file()
+                messaggio = titolo_annuncio + ' a ' + str(prezzo) + '€' + ': <a href="' + link_annuncio + '">annuncio</a>'
+                bot.sendMessage(CHAT_ID, messaggio, parse_mode='HTML')
+                
 
 delay = secrets.randbelow(10) + 5
 time.sleep(delay)
