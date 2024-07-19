@@ -222,10 +222,14 @@ for item in product_list_items_tot:
                 contenuto_file_iniziale = contenuto()
             
             if not link_annuncio in contenuto_file_iniziale + new_content:
-                manda_mail(link_annuncio, titolo_annuncio)
+                titolo_annuncio = titolo_annuncio + ' a ' + str(prezzo) + '€'
+                try:
+                    manda_mail(link_annuncio, titolo_annuncio)
+                except:
+                    pass
                 new_content = link_annuncio + new_content
                 aggiorna_file()
-                messaggio = titolo_annuncio + ' a ' + str(prezzo) + '€' + ': <a href="' + link_annuncio + '">annuncio</a>'
+                messaggio = titolo_annuncio + ': <a href="' + link_annuncio + '">annuncio</a>'
                 bot.sendMessage(CHAT_ID, messaggio, parse_mode='HTML')
                 
 
