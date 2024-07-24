@@ -224,7 +224,8 @@ for item in product_list_items_tot:
             if not link_annuncio in contenuto_file_iniziale + new_content:
                 titolo_annuncio = titolo_annuncio + ' a ' + str(prezzo) + '€'
                 try:
-                    manda_mail(link_annuncio, titolo_annuncio)
+                    #manda_mail(link_annuncio, titolo_annuncio)
+                    pass
                 except:
                     pass
                 new_content = link_annuncio + new_content
